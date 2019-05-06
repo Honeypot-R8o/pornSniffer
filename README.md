@@ -9,7 +9,7 @@ pip3 install netaddr<br>
 pip3 install datetime<br>
 pip3 install interfaces<br>
 <br>
-# run TOR-Sniffer:<br>
+# run Sniffer:<br>
 sudo python3 pornSniffer.py -i enp0s3<br>
 <br>
 # Use a managed switch with port-mirroring to sniff the internet traffic<br>

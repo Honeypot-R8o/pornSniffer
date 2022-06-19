@@ -16,7 +16,7 @@ dhcpname={}
 def startscreen():
 	print('\033c')
 	print("****************************************")
-	print("* Porn Sniffer V.6.1 by Reto Schaedler *")
+	print("* Porn Sniffer V.7.0 by Reto Schaedler *")
 	print("****************************************")
 	print()
 
@@ -24,9 +24,10 @@ def startscreen():
 def packetSniffer(pkt):
 	global dnslist
 	global iplist
+	ip46 = IPv6 if IPv6 in pkt else IP
 	if pkt.haslayer(DNSQR):
 		dnslist.append(str(pkt[DNS].qd.qname)[2:-2])
-		iplist.append(str(pkt[IP].dst))
+		iplist.append(str(pkt[ip46].dst))
 
 
 def dnsSniffer():
@@ -92,8 +93,10 @@ def openDnsChecker():
 			except (KeyboardInterrupt, SystemExit):
 				raise
 			except:
-				del(dnslist[0])
-				del(iplist[0])
+				if len(dnslist)>0:
+					del(dnslist[0])
+				if len(iplist)>0:
+					del(iplist[0])
 
 		else:
 				sleep(0.1)
@@ -141,7 +144,7 @@ if __name__ == '__main__':
 	parser = optparse.OptionParser()
 	parser.add_option('-i', '--interface',
 	    action="store", dest="interface",
-	    help="query string", default="enp0s3")
+	    help="query string", default="enp60s0")
 	options, args = parser.parse_args()
 
 	intf=options.interface

@@ -1,13 +1,13 @@
-# Porn Sniffer<br>
-# Installation on Ubuntu 18.04:<br>
+# Porn Sniffer with IPv6 support<br>
+# Installation on Ubuntu:<br>
 <br>
 sudo apt-get update<br>
 sudo apt-get install python3<br>
 sudo apt install python3-pip<br>
-pip3 install scapy<br>
-pip3 install netaddr<br>
-pip3 install datetime<br>
-pip3 install interfaces<br>
+sudo pip3 install scapy<br>
+sudo pip3 install netaddr<br>
+sudo pip3 install datetime<br>
+sudo pip3 install interfaces<br>
 <br>
 # run Sniffer:<br>
 sudo python3 pornSniffer.py -i enp0s3<br>
